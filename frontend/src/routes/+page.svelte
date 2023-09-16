@@ -1,11 +1,10 @@
 <script>
-    import Canvas from "$lib/Canvas.svelte";
+	import ModelPage from "$lib/Model_Page.svelte";
 
 </script>
 
 <body>
-    <h1>Title</h1>
-    <Canvas/>
+    <ModelPage></ModelPage>
     
 </body>
 

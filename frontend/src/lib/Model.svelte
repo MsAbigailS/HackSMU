@@ -8,6 +8,7 @@ Command: npx @threlte/gltf@1.0.1 Scene.gltf --transform
   import { T, forwardEventHandlers } from '@threlte/core'
   import { interactivity, useGltf } from '@threlte/extras'
   import { spring } from 'svelte/motion';
+  import { focused_elevator } from '$lib/store'
 	
   interactivity();
 
@@ -18,43 +19,41 @@ Command: npx @threlte/gltf@1.0.1 Scene.gltf --transform
   const setScale = (elevator) => {
     console.log(focused_elevator)
     if (focused_elevator == elevator) {
-      focused_elevator = 0;
+      focused_elevator.set(0);
       elevator_scale_1.set(1);
       elevator_scale_2.set(1);
       elevator_scale_3.set(1);
       elevator_scale_4.set(1);
     }
     else if (elevator == 1) {
-      focused_elevator = 1;
+      focused_elevator.set(1);
       elevator_scale_1.set(1.25);
       elevator_scale_2.set(1);
       elevator_scale_3.set(1);
       elevator_scale_4.set(1);
     }
     else if (elevator == 2) {
-      focused_elevator = 2;
+      focused_elevator.set(2);
       elevator_scale_1.set(1);
       elevator_scale_2.set(1.25);
       elevator_scale_3.set(1);
       elevator_scale_4.set(1);
     }
     else if (elevator == 3) {
-      focused_elevator = 3;
+      focused_elevator.set(3);
       elevator_scale_1.set(1);
       elevator_scale_2.set(1);
       elevator_scale_3.set(1.25);
       elevator_scale_4.set(1);
     }
     else if (elevator == 4) {
-      focused_elevator = 4;
+      focused_elevator.set(4);
       elevator_scale_1.set(1);
       elevator_scale_2.set(1);
       elevator_scale_3.set(1);
       elevator_scale_4.set(1.25);
     }
   }
-
-  let focused_elevator = 0;
 
   const elevator_scale_1 = spring(1);
   const elevator_scale_2 = spring(1);
