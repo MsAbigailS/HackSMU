@@ -8,6 +8,9 @@
     console.log(state);
     let current_elevator = 0;
     let popup: HTMLDivElement | null = null;
+    let thing : {
+        [key : string]: string
+    } = $state 
 
     focused_elevator.subscribe(value => {
         if (popup == null) return;
@@ -38,7 +41,21 @@
             <h3>Condition: Good</h3>
         </hgroup>
 
-        No recommended work yet. 
+        Current State is: {$current_state}
+        <br/>
+        {#if current_elevator < 5}Current Elevator Temperature is: {thing['outside_temp']}{/if}
+        <br/>
+        {#if current_elevator < 5}Current Elevator Door Speed is: {thing['door_speed']}{/if}
+        <br/>
+        {#if current_elevator < 5}Current Elevator Speed is: {thing['elevator_speed']}{/if}
+        <br/>
+        {#if current_elevator < 5}Current Elevator Speed is: {thing['elevator_speed']}{/if}
+        <br/>
+        {#if current_elevator >= 5}Current Outdoor Temperature: {thing['outside_temp']}{/if}
+        <br/>
+        {#if current_elevator >= 5}Current Floor Temp: {thing['elevator_temp']}{/if}
+        <br/>
+        Days since last service: {thing['usage_time']}
     </div>
 
 </main>
