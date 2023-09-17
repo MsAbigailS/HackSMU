@@ -1,4 +1,7 @@
-<script lang="ts"></script>
+<script lang="ts">
+	import ContextMenu from "$lib/ContextMenu.svelte";
+
+</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -189,6 +192,8 @@
     <div class="homepage-third-section">
         Third section
     </div>
+
+    <ContextMenu/>
     
 </body>
 
