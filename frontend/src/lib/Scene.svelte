@@ -4,6 +4,7 @@
     import { spring } from 'svelte/motion'
     import Camera from './Camera.svelte'
     import Model from './Model.svelte';
+    import HvacModel from './HVAC_Model.svelte';
 
     interactivity();
 
@@ -13,6 +14,9 @@
   <Camera />
   <T.DirectionalLight position={[1, 2, 5]} />
   <Model/>
+  <HvacModel elevator_id={5}/>
+  <HvacModel y_offset={3} elevator_id={6}/>
+  <HvacModel y_offset={6} elevator_id={7}/>
   <Grid
     position.y={-0.001}
     cellColor="#ffffff"
