@@ -1,4 +1,9 @@
 <script lang="ts">
+	import ContextMenu from "$lib/ContextMenu.svelte";
+	import { onMount } from "svelte";
+	import type { Context } from '$lib/ContextInterface';
+    let context: Context = {name: "nothing"};
+
     import Chart from 'svelte-frappe-charts';
 
     let data = {
@@ -50,7 +55,7 @@
     <div class="homepage-first-section">
         <article class="notification-container">
             <h1 class="section-title" id="notification">Notifications</h1>
-                <article class="notification-card">
+                <article class="notification-card" on:contextmenu={() => {context={name: "notification_1"}}}>
                     <div class="notification-heading-container">
                         <h3 class="notification-title-text">
                             HVAC Preventative Maintenance Upcoming!
@@ -86,7 +91,7 @@
                     </div>
                 </article>
     
-                <article class="notification-card">
+                <article class="notification-card" on:contextmenu={() => {context={name: "notification_2"}}}>
                     <div class="notification-heading-container">
                         <h3 class="notification-title-text">
                             Elevator Reactive Maintenance Needed!
@@ -122,7 +127,7 @@
                     </div>
                 </article>
     
-                <article class="notification-card">
+                <article class="notification-card" on:contextmenu={() => {context={name: "notification_3"}}}>
                     <div class="notification-heading-container">
                         <h3 class="notification-title-text">
                             Elevator Reactive Maintenance Needed!
@@ -351,6 +356,8 @@
             </div>
         </div>
     </div>
+
+    <ContextMenu bind:context/>
     
 </body>
 
@@ -433,6 +440,7 @@
         justify-content: right;
         margin-top: 20px;
         padding-right: 2%;
+        color: #edf0f3;
     }
 
     .homepage-first-section{
@@ -442,6 +450,7 @@
     }
 
     .navbar-page-text {
+        color: #edf0f3;
         width: 100%;
         display: flex;
         justify-content: center;
