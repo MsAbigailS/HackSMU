@@ -51,8 +51,20 @@ Inspired from: Context Menu https://svelte.dev/repl/3a33725c3adb4f57b46b597f9dad
         }
     }
 
-    function msgTechnician(){
+    async function msgTechnician(){
 		console.log(`message the technician: ${JSON.stringify(context)}!`);
+
+        const data = new FormData();
+        data.append("elevator_id", String(context.name));
+
+        if (context.name == "nothing") return;
+
+        await fetch(
+            "http://localhost:5000/notify_technicians",
+            {
+                method: 'POST',
+                body: data
+        })
     }
 
 </script>
@@ -103,7 +115,7 @@ Inspired from: Context Menu https://svelte.dev/repl/3a33725c3adb4f57b46b597f9dad
 <nav use:getContextMenuDimension style="position: absolute; top:{pos.y}px; left:{pos.x}px" on:click={onPageClick}>
     <div class="navbar" id="navbar">
 		<button on:click={msgTechnician}>Notify Technician<Phone/></button>
-		<button>View Diagnostics<Graph/></button>
+		<!-- <button>View Diagnostics<Graph/></button> -->
     </div>
 </nav>
 {/if}

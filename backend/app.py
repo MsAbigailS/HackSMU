@@ -46,7 +46,7 @@ def notify_technicians():
     print("Received notification request with args: {}".format(args))
     for tech in secrets["technicians"]:
         twilio_client.messages.create(
-            body="Elevator {} is in need of maintenance.".format(args["elevator_id"]),
+            body="{}".format(args["elevator_id"]),
             from_=secrets["twilio_number"],
             to=tech,
         )

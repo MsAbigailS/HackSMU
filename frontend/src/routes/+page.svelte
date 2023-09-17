@@ -55,7 +55,7 @@
     <div class="homepage-first-section">
         <article class="notification-container">
             <h1 class="section-title" id="notification">Notifications</h1>
-                <article class="notification-card" on:contextmenu={() => {context={name: "notification_1"}}}>
+                <article class="notification-card" on:contextmenu={() => {context={name: "HVAC Preventative Maintenance Upcoming!"}}}>
                     <div class="notification-heading-container">
                         <h3 class="notification-title-text">
                             HVAC Preventative Maintenance Upcoming!
@@ -91,7 +91,7 @@
                     </div>
                 </article>
     
-                <article class="notification-card" on:contextmenu={() => {context={name: "notification_2"}}}>
+                <article class="notification-card" on:contextmenu={() => {context={name: "Elevator Reactive Maintenance Needed!"}}}>
                     <div class="notification-heading-container">
                         <h3 class="notification-title-text">
                             Elevator Reactive Maintenance Needed!
@@ -127,7 +127,7 @@
                     </div>
                 </article>
     
-                <article class="notification-card" on:contextmenu={() => {context={name: "notification_3"}}}>
+                <article class="notification-card" on:contextmenu={() => {context={name: "Elevator Reactive Maintenance Needed!"}}}>
                     <div class="notification-heading-container">
                         <h3 class="notification-title-text">
                             Elevator Reactive Maintenance Needed!
@@ -167,7 +167,7 @@
     
         <article class="work-request-section-container">
             <h1>Work Requests</h1>
-            <article class="work-request-card">
+            <article class="work-request-card" on:contextmenu={() => {context={name: "IMPORTANT: ID #1234 (Reactive Elevator Maintenance!)"}}}>
                 <div class="wr-header">
                     <div class="wr-top-left-container">
                         <h1 class="wr-title-text">ID #1234</h1>
@@ -198,7 +198,7 @@
                 </div>
             </article>
 
-            <article class="work-request-card">
+            <article class="work-request-card" on:contextmenu={() => {context={name: "Preventative Maintenance Needed! HVAC Floor 1 Room 3."}}}>
                 <div class="wr-header">
                     <div class="wr-top-left-container">
                         <h1 class="wr-title-text">ID #5896</h1>

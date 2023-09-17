@@ -8,7 +8,7 @@
   >
     <OrbitControls
       on:change={(e) => {
-        console.log(e)
+        // console.log(e)
       }}
     />
   </T.PerspectiveCamera>

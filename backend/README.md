@@ -13,6 +13,11 @@ returns
 returns
 	"Hello World"
 
+/notify_technicians POST
+    elevator_id
+returns
+    "OK"
+
 # Interpreting the API
 
 Needs routine maintenance if probability of failure is > 20%
