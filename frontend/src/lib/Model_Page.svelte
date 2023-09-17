@@ -34,7 +34,7 @@
 
     <div id="popup" data-theme="light" bind:this={popup} on:transitionend={() => {updateElevatorValue()}}>
         <hgroup>
-            <h3>Elevator {current_elevator}</h3>
+            <h3>{#if current_elevator < 5}Elevator {current_elevator}{:else}HVAC {current_elevator % 4}{/if}</h3>
             <h3>Condition: Good</h3>
         </hgroup>
 
