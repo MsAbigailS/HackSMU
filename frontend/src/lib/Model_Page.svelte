@@ -14,7 +14,7 @@
             <input/>
         </div>
         <div class="eventBox">
-            hi
+            
         </div>
     </div>
 

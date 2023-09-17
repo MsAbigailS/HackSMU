@@ -17,8 +17,7 @@ Command: npx @threlte/gltf@1.0.1 Scene.gltf --transform
   const gltf = useGltf('/Scene-transformed.glb', { useDraco: true })
 
   const setScale = (elevator) => {
-    console.log(focused_elevator)
-    if (focused_elevator == elevator) {
+    if ($focused_elevator == elevator) {
       focused_elevator.set(0);
       elevator_scale_1.set(1);
       elevator_scale_2.set(1);
@@ -95,7 +94,7 @@ Command: npx @threlte/gltf@1.0.1 Scene.gltf --transform
       position={[0, 5.2, 1]}
     />
     <T.Mesh
-      scale={elevator_scale_4}
+      scale={$elevator_scale_4}
       on:click={() => setScale(4)}
       geometry={gltf.nodes.Elevator_Shaft_4.geometry}
       material={gltf.nodes.Elevator_Shaft_4.material}
