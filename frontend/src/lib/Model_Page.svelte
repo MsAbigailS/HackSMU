@@ -11,16 +11,15 @@
         if (popup == null) return;
         if (value == 0) {
             popup.style.opacity = '0';
-            current_elevator = 0;
         } else {
-            current_elevator = value;
+            current_elevator = $focused_elevator;
             popup.style.opacity = '1';
         }
 
     })
 
     function updateElevatorValue() {
-        focused_elevator.set(current_elevator);
+        current_elevator = $focused_elevator;
     }
 
 </script>
@@ -31,7 +30,7 @@
         <Canvas/>
     </div>
 
-    <div id="popup" data-theme="light" bind:this={popup} on:on:animationend={() => {updateElevatorValue()}}>
+    <div id="popup" data-theme="light" bind:this={popup} on:transitionend={() => {updateElevatorValue()}}>
         <hgroup>
             <h3>Elevator {current_elevator}</h3>
             <h3>Condition: Good</h3>
