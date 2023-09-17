@@ -253,6 +253,7 @@
         justify-content: right;
         margin-top: 20px;
         padding-right: 2%;
+        color: #edf0f3;
     }
 
     .homepage-first-section{
@@ -262,6 +263,7 @@
     }
 
     .navbar-page-text {
+        color: #edf0f3;
         width: 100%;
         display: flex;
         justify-content: center;
