@@ -1,13 +1,16 @@
 <script lang="ts">
 	import ContextMenu from "$lib/ContextMenu.svelte";
-
+	import { onMount } from "svelte";
+	import type { Context } from '$lib/ContextInterface';
+    let context: Context = {name: "nothing"};
 </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 <body>
     <div class="navbar-container">
-        <div class="navbar-proj-title">
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        <div class="navbar-proj-title" on:contextmenu|preventDefault={() => {context={name: "project-title"}}}>
             Project Title
         </div>
         <div class="navbar-profile">
@@ -24,7 +27,7 @@
     <div class="homepage-first-section">
         <article class="notification-container">
             <h1 class="section-title" id="notification">Notifications</h1>
-                <article class="notification-card">
+                <article class="notification-card" on:contextmenu={() => {context={name: "notification_1"}}}>
                     <div class="notification-heading-container">
                         <h3 class="notification-title-text">
                             Notification 1
@@ -56,7 +59,7 @@
                     </div>
                 </article>
     
-                <article class="notification-card">
+                <article class="notification-card" on:contextmenu={() => {context={name: "notification_2"}}}>
                     <div class="notification-heading-container">
                         <h3 class="notification-title-text">
                             Notification 2
@@ -88,7 +91,7 @@
                     </div>
                 </article>
     
-                <article class="notification-card">
+                <article class="notification-card" on:contextmenu={() => {context={name: "notification_3"}}}>
                     <div class="notification-heading-container">
                         <h3 class="notification-title-text">
                             Notification 3
@@ -193,7 +196,7 @@
         Third section
     </div>
 
-    <ContextMenu/>
+    <ContextMenu bind:context/>
     
 </body>
 
