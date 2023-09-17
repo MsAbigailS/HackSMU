@@ -1,21 +1,50 @@
-<script lang="ts"></script>
+<script lang="ts">
+    import Chart from 'svelte-frappe-charts';
+
+    let data = {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [
+            {
+                name: "# of Incidents", values: [45, 30, 25, 27, 30, 32, 25, 27, 48, 35, 14]
+            }
+        ]
+    }
+
+    let data2 = {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [
+            {
+                name: "Maintenance Required", values: [2, 1, 0, 0, 5, 4, 2, 0, 1, 1, 2]
+            }
+        ]
+    }
+
+    let data3 = {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [
+            {
+                name: "Maintenance Completed", values: [7, 8, 7, 6, 0, 5, 2, 3, 0, 0, 0]
+            }
+        ]
+    }
+</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 <body>
     <div class="navbar-container">
         <div class="navbar-proj-title">
-            Project Title
+            Model Maintenance
         </div>
         <div class="navbar-profile">
-            profile
+            <img  class="navbar-profile-img" src="https://samanthabrandon.com/wp-content/uploads/2023/04/sam-.png"/>
         </div>
     </div>
     <div class="navbar-container">
-        <div class="navbar-page-text">page 1</div>
-        <div class="navbar-page-text">page 2</div>
-        <div class="navbar-page-text">page 3</div>
-        <div class="navbar-page-text">page 4</div>
+        <div class="navbar-page-text" id="nb-active">Dashboard</div>
+        <div class="navbar-page-text">3D Map</div>
+        <div class="navbar-page-text">Work Orders</div>
+        <div class="navbar-page-text">Work Requests</div>
     </div>
 
     <div class="homepage-first-section">
@@ -24,31 +53,35 @@
                 <article class="notification-card">
                     <div class="notification-heading-container">
                         <h3 class="notification-title-text">
-                            Notification 1
+                            HVAC Preventative Maintenance Upcoming!
                         </h3>
                         <div class="notification-timestamp-container">
                             <div class="notification-last-updated-container">
-                                Last updated
+                                Published Sep 17th<br/>at 8:00 AM
                             </div>
                             <div class="notification-published-container">
-                                Published date
+                               
                             </div>
                         </div>
                     </div>
+
+                    <div class="notification-text">
+                        <strong class="notification-text-title">Notification:</strong><br/>Preventative maintenance detected! Preventative maintenance needed in 3 days.
+                    </div>
                     
                     <div class="grid" id="notification-info-container">
-                        <div class="notification-type-container" id="notification-type-1">Type 1</div>
-                        <div class="notification-urgency-container" id="notification-urgency-1">Urgency 1</div>
+                        <div class="notification-type-container" id="notification-type-1">Preventative</div>
+                        <div class="notification-urgency-container" id="notification-urgency-1">Low Priority</div>
                         <div class="notification-status-container" id="notification-status-1">
-                            Status 1
+                            Not Started
                         </div>
                     </div>
                     <div class="notification-summary-container">
-                        <div class="notification-who-container">
-                            Who responsible
+                        <div class="notification-status-container" id="notification-status-1">
+                            Team A
                         </div>
-                        <div class="notification-where-container">
-                            Where issue
+                        <div class="notification-status-container" id="notification-status-4">
+                            Building 2, Floor 2, Room W2030
                         </div>
                     </div>
                 </article>
@@ -56,31 +89,35 @@
                 <article class="notification-card">
                     <div class="notification-heading-container">
                         <h3 class="notification-title-text">
-                            Notification 2
+                            Elevator Reactive Maintenance Needed!
                         </h3>
                         <div class="notification-timestamp-container">
                             <div class="notification-last-updated-container">
-                                Last updated
+                                Published Sep 10th<br/>at 2:30 PM
                             </div>
                             <div class="notification-published-container">
-                                Published date
+                                
                             </div>
                         </div>
                     </div>
+
+                    <div class="notification-text">
+                        <strong class="notification-text-title">Notification:</strong><br/>Reactive maintenance now in "initial inspection" phase. "Initial inspection" is estimated to take 2 days. This work order is currently on time to complete in one week.
+                    </div>
                     
                     <div class="grid" id="notification-info-container">
-                        <div class="notification-type-container" id="notification-type-2">Type 2</div>
-                        <div class="notification-urgency-container" id="notification-urgency-2">Urgency 2</div>
+                        <div class="notification-type-container" id="notification-type-2">Reactive</div>
+                        <div class="notification-urgency-container" id="notification-urgency-2">Medium Priority</div>
                         <div class="notification-status-container" id="notification-status-2">
-                            Status 2
+                            Initial Inspection Needed
                         </div>
                     </div>
                     <div class="notification-summary-container">
-                        <div class="notification-who-container">
-                            Who responsible
+                        <div class="notification-status-container" id="notification-status-5">
+                            Team B
                         </div>
-                        <div class="notification-where-container">
-                            Where issue
+                        <div class="notification-status-container" id="notification-status-5">
+                            Building 1, Floor 1, Room 320
                         </div>
                     </div>
                 </article>
@@ -88,31 +125,35 @@
                 <article class="notification-card">
                     <div class="notification-heading-container">
                         <h3 class="notification-title-text">
-                            Notification 3
+                            Elevator Reactive Maintenance Needed!
                         </h3>
                         <div class="notification-timestamp-container">
                             <div class="notification-last-updated-container">
-                                Last updated
+                                Published Sep 9th<br/>at 2:30 PM
                             </div>
                             <div class="notification-published-container">
-                                Published date
+                               
                             </div>
                         </div>
+                    </div>
+
+                    <div class="notification-text">
+                        <strong class="notification-text-title">Notification:</strong><br/>Reactive maintenance now in "installing parts" phase. The "installing parts" phase should take 2 days. This work order is currently on time to complete in 5 days.
                     </div>
                     
                     <div class="grid" id="notification-info-container">
-                        <div class="notification-type-container" id="notification-type-3">Type 3</div>
-                        <div class="notification-urgency-container" id="notification-urgency-3">Urgency 3</div>
+                        <div class="notification-type-container" id="notification-type-3">Reactive</div>
+                        <div class="notification-urgency-container" id="notification-urgency-3">High Priority</div>
                         <div class="notification-status-container" id="notification-status-3">
-                            Status 3
+                            Installing Parts
                         </div>
                     </div>
                     <div class="notification-summary-container">
-                        <div class="notification-who-container">
-                            Who responsible
+                        <div class="notification-status-container" id="notification-status-6">
+                            Team C
                         </div>
-                        <div class="notification-where-container">
-                            Where issue
+                        <div class="notification-status-container" id="notification-status-6">
+                            West Building, Floor 1, Room E15
                         </div>
                     </div>
                 </article>
@@ -128,8 +169,8 @@
                     </div>
                     
                     <div class="wr-top-right-container">
-                        <div class="wr-priority-container" id="wr-priority-type-1">URGENT</div>
-                        <div class="wr-published-date-container">Submitted: 09/15/2023 at 1:30 PM</div>
+                        <div class="wr-priority-container" id="wr-priority-type-1">High Priority</div>
+                        <div class="wr-published-date-container">Submitted: Sep 17th at 1:30 PM</div>
                     </div>
                 </div>
                 <div class="wr-summary-container">
@@ -142,7 +183,38 @@
                     </div>
                     <div class="wr-issue-container">
                         <div class="wr-issue-title-text">Issue:</div>
-                        Elevator doors stuck open. Unsure what caused the issue. Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum Loreum Ipsum. </div>
+                        Residents and staff at Maple Heights Apartments, Building B, have reported a malfunctioning elevator on the east side of the building. The elevator appears to be inoperative, with the doors remaining closed and the control panel unresponsive. Users have reported that the elevator stalled between floors and displayed an error message on the control panel. </div>
+                    
+                </div>
+                <div class="wr-review-container">
+                    <button class="wr-review-button">
+                        Review
+                    </button>
+                </div>
+            </article>
+
+            <article class="work-request-card">
+                <div class="wr-header">
+                    <div class="wr-top-left-container">
+                        <h1 class="wr-title-text">ID #5896</h1>
+                    </div>
+                    
+                    <div class="wr-top-right-container">
+                        <div class="wr-priority-container" id="wr-priority-type-2">Low Priority</div>
+                        <div class="wr-published-date-container">Submitted: Sep 15th at 9:30 PM</div>
+                    </div>
+                </div>
+                <div class="wr-summary-container">
+                    <div class="wr-subheading-container">
+                        <div class="wr-type-container" id="wr-type-preventative">Preventative Maintenance</div>
+                        <div class="wr-type-reactive-subheading-bottom">
+                            <div class="wr-asset-container" id="wr-asset-type-1">HVAC</div>
+                            <div class="wr-location-container">Floor 1, Room 3</div>
+                        </div>
+                    </div>
+                    <div class="wr-issue-container">
+                        <div class="wr-issue-title-text">Issue:</div>
+                        Scheduled HVAC preventative maintenance at DEF Office Park encompasses a comprehensive range of tasks. This includes replacing air filters, cleaning and inspecting coils, and lubricating motors and moving parts. The maintenance team will also calibrate thermostats, check and adjust refrigerant levels as needed, and inspect electrical components for wear and tear. Additionally, ductwork will be inspected for leaks, and any gaps will be sealed to ensure optimal system performance. Safety checks will be conducted on emergency shut-offs and related features. The maintenance is aimed at preserving indoor air quality, improving energy efficiency, and minimizing potential disruptions. </div>
                     
                 </div>
                 <div class="wr-review-container">
@@ -162,7 +234,7 @@
                     Maintenance History and Forecast
                 </summary>
                 <div class="ct-mt-container">
-                    <img src="https://charts.livegap.com/2020/images/paper-en.png" class="ct-mt-image"/>
+                    <Chart data={data} type="line"/>
                 </div>
             </details>
 
@@ -171,7 +243,7 @@
                     Work Request History and Forecast
                 </summary>
                 <div class="ct-wr-container">
-                    <img src="https://charts.livegap.com/2020/images/paper-en.png" class="ct-mt-image"/>
+                    <Chart data={data2} type="bar"/>
                 </div>
             </details>
 
@@ -180,14 +252,104 @@
                     Some other trend
                 </summary>
                 <div class="ct-mt-container">
-                    <img src="https://charts.livegap.com/2020/images/paper-en.png" class="ct-mt-image"/>
+                    <Chart data={data3} type="bar"/>
                 </div>
             </details>
         </div>
     </div>
 
     <div class="homepage-third-section">
-        Third section
+        <div class="calendar-month-name">
+            September, 2023
+        </div>
+        <div class="calendar-container">
+            <div class="calendar-days">
+                <div class="calendar-day-text">Tue,<br/>19th</div>
+                <div class="calendar-day-text">Wed,<br/>20th</div>
+                <div class="calendar-day-text">Thu,<br/>21st</div>
+                <div class="calendar-day-text">Fri,<br/>22nd</div>
+                <div class="calendar-day-text">Sat,<br/>23rd</div>
+                <div class="calendar-day-text">Sun,<br/>24th</div>
+                <div class="calendar-day-text">Mon,<br/>25th</div>
+                <div class="calendar-day-text">Tue,<br/>26th</div>
+                <div class="calendar-day-text">Wed,<br/>27th</div>
+                <div class="calendar-day-text">Thu,<br/>28th</div>
+                <div class="calendar-day-text">Fri,<br/>29th</div>
+                <div class="calendar-day-text">Sat,<br/>30th</div>
+                <div class="calendar-day-text">Sun,<br/>1st</div>
+                <div class="calendar-day-text">Mon,<br/>2nd</div>
+                <div class="calendar-day-text">Tue,<br/>3rd</div>
+                <div class="calendar-day-text">Wed,<br/>4th</div>
+                <div class="calendar-day-text">Thu,<br/>5th</div>
+                <div class="calendar-day-text">Fri,<br/>6th</div>
+                <div class="calendar-day-text">Sat,<br/>7th</div>
+                <div class="calendar-day-text">Sun,<br/>8th</div>
+                <div class="calendar-day-text">Mon,<br/>9th</div>
+            </div>
+            <div class="calendar-times-and-events-calendar">
+                <div class="calendar-row" id="cr-1">
+                    <div class="cr-event-name" >
+                        ID #1234
+                    </div>
+                    <div>
+                        <div class="cr-event-content" id="cr-event-1-parent">
+                            Fix Elevator Doors
+                        </div>
+                        <div class="cr-event-content" id="cr-event-1-c1">Initial Inspection</div>
+                        <div class="cr-event-content" id="cr-event-1-c2">Physical Maintenance</div>
+                        <div class="cr-event-content" id="cr-event-1-c3">Post Inspection</div>
+                    </div>
+                </div>
+
+                <div class="calendar-row" id="cr-2">
+                    <div class="cr-event-name">
+                        ID #5869
+                    </div>
+                    <div>
+                        <div class="cr-event-content" id="cr-event-2-parent">
+                            Preventative Maintenance for HVAC
+                        </div>
+                        <div class="cr-event-content" id="cr-event-2-c1">Initial Inspection</div>
+                        <div class="cr-event-content" id="cr-event-2-c2">Order Parts</div>
+                        <div class="cr-event-content" id="cr-event-2-c3">Install Parts</div>
+                        <div class="cr-event-content" id="cr-event-2-c4">Post Inspection</div>
+                    </div>
+                </div>
+
+                <div class="calendar-row" id="cr-3">
+                    <div class="cr-event-name">
+                        ID #7859
+                    </div>
+                    <div>
+                        <div class="cr-event-content" id="cr-event-3-parent">
+                            Reactive Maintenance for HVAC
+                        </div>
+                        <div class="cr-event-content" id="cr-event-3-c1">Initial Inspection</div>
+                        <div class="cr-event-content" id="cr-event-3-c2">Order Parts</div>
+                        <div class="cr-event-content" id="cr-event-3-c3">Install Parts</div>
+                        <div class="cr-event-content" id="cr-event-3-c4">Post Inspection</div>
+                    </div>
+                </div>
+
+                <div class="calendar-row" id="cr-4">
+                    <div class="cr-event-name">
+                        ID #5320
+                    </div>
+                    <div>
+                        <div class="cr-event-content" id="cr-event-4-parent">
+                            Fix Elevator Buttons
+                        </div>
+                        <div class="cr-event-content" id="cr-event-4-c1">Initial Inspection</div>
+                        <div class="cr-event-content" id="cr-event-4-c2">Order Parts</div>
+                        <div class="cr-event-content" id="cr-event-4-c3">Install Parts</div>
+                    </div>
+                </div>
+                
+                
+                
+                
+            </div>
+        </div>
     </div>
     
 </body>
@@ -201,6 +363,8 @@
 
     body {
         background-color: white;
+        overflow-x:hidden;
+        /* overflow-y:hidden; */
     }
 
     /* class */
@@ -236,6 +400,30 @@
         font-weight: bold;
         margin-top: 20px;
         padding-left: 2%;
+        font-size: 25px;
+    }
+
+    .calendar-times-and-events-calendar{
+        /* background-color: red; */
+        /* z-index: 0; */
+        margin-top: 75px;
+    }
+
+    .calendar-days{
+        display: flex;
+        position: absolute;
+        padding-left: 475px;
+        z-index: 0;
+    }
+
+    .calendar-day-text{
+        padding: 10px;
+        border-style: solid;
+        border-color: grey;
+        border-width: 1px;
+        height: 1075px;
+        width:100px;
+        text-align: center;
     }
 
     .navbar-profile{
@@ -259,6 +447,7 @@
         justify-content: center;
         font-weight: 200;
         margin-top: 20px;
+        padding-top: 5px;
         /* padding-bottom: 20px; */
     }
 
@@ -290,6 +479,64 @@
         /* border-style: solid; */
         border-color: red;
         width: 65%;
+    }
+
+    #nb-active{
+        background-color: #152041;
+        font-weight: 500;
+    }
+
+    .navbar-profile-img{
+        border-radius: 50%;
+        height: 65px;
+    }
+
+    .calendar-container{
+        border-style: solid;
+        position: relative;
+        overflow: scroll;
+        height: 100%;
+    }
+
+    .calendar-month-name{
+        font-size: 42px;
+        font-weight: bold;
+        padding-left: 20px;
+        padding-bottom: 10px;
+    }
+
+    .calendar-row{
+        border-top: solid;
+        border-bottom: solid;
+        display: flex;
+        z-index: 10;
+        position: absolute;
+        height: 250px;
+        /* width: 150%; */
+        /* background-color: red; */
+    }
+
+    .cr-event-name{
+        /* border-right: solid grey; */
+        width:475px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        font-size: 35px;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .cr-event-content{
+        border-style: solid;
+        border-radius: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        color: white;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        z-index: 99;
     }
 
 
@@ -343,6 +590,8 @@
         display: flex;
         color: black;
         margin-top: 15px;
+        display: flex;
+        justify-content: center;
     }
 
     .notification-where-container {
@@ -374,11 +623,25 @@
         /* height: 6vh; */
     }
 
+    .notification-text{
+        color: black;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        padding: 7px;
+        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    .notification-text-title{
+        font-weight: 500;
+    }
+
     .notification-last-updated-container {
         /* background-color: blue; */
         /* width: 25%; */
         display: flex;
         justify-content: right;
+        text-align: right;
         color: black;
         font-size: 20px;
     }
@@ -416,7 +679,7 @@
     }
 
     .wr-summary-container{
-        background-color: white;
+        /* background-color: white; */
         border-radius: 5px;
         padding: 2%;
     }
@@ -551,6 +814,11 @@
         background-color: #dbdbdb;
     }
 
+    .work-request-card:hover{
+        background-color: #dbdbdb;
+ 
+    }
+
     .homepage-second-section {
         color: black;
         background-color: #0B132B;
@@ -598,7 +866,7 @@
     .homepage-third-section{
         height: 50vh;
         color: black;
-
+        padding-top: 50px;
     }
     
 
@@ -636,6 +904,27 @@
         box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
     }
 
+    #notification-status-4 {
+        background-color: #317B22;
+        border-style: none;
+        box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+        margin-left: 10px;
+    }
+
+    #notification-status-5 {
+        background-color: #FFBA49;
+        border-style: none;
+        box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+        margin-left: 10px;
+    }
+
+    #notification-status-6 {
+        background-color: #EF5B5B;
+        border-style: none;
+        box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+        margin-left: 10px;
+    }
+
     #notification-type-1, #notification-urgency-1, #notification-status-1 {
         background-color: #317B22;
         border-style: none;
@@ -655,12 +944,209 @@
         font-weight: bold;
     }
 
+    #wr-type-preventative{
+        background-color: #FFBA49;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+    }
+
     #wr-asset-type-1 {
         background-color: #3083DC;
     }
 
+    #cr-event-1-parent{
+        background-color:#EF5B5B;
+        border-style: solid;
+        border-color:#EF5B5B;
+        width: 580px;
+        /* width: 735px; */
+    }
+
+    #cr-event-2-parent{
+        background-color:#3083DC;
+        border-style: solid;
+        border-color:#3083DC;
+        width: 1170px;
+        margin-left: 200px;
+        /* width: 735px; */
+    }
+
+    #cr-event-3-parent{
+        background-color:#FFBA49;
+        border-style: solid;
+        border-color:#FFBA49;
+        width: 975px;
+        margin-left: 900px;
+        /* width: 735px; */
+    }
+
+    #cr-event-4-parent{
+        background-color:#317B22;
+        border-style: solid;
+        border-color:#317B22;
+        width: 975px;
+        margin-left: 100px;
+        /* width: 735px; */
+    }
+
+    #cr-event-1-c1 {
+        background-color: #EF5B5B;
+        border-style: solid;
+        border-color: #EF5B5B;
+        width: 180px;
+        margin-left: 0px;
+    }
+
+    #cr-event-2-c1 {
+        background-color: #3083DC;
+        border-style: solid;
+        border-color: #3083DC;
+        width: 180px;
+        margin-left: 200px;
+    }
+
+    #cr-event-2-c2 {
+        background-color: #3083DC;
+        border-style: solid;
+        border-color: #3083DC;
+        width: 685px;
+        margin-left: 395px;
+    }
+
+    #cr-event-2-c3 {
+        background-color: #3083DC;
+        border-style: solid;
+        border-color: #3083DC;
+        width: 190px;
+        margin-left: 1093px;
+    }
+
+    #cr-event-2-c4 {
+        background-color: #3083DC;
+        border-style: solid;
+        border-color: #3083DC;
+        width: 180px;
+        margin-left: 1294px;
+    }
+
+    #cr-1 {
+        /* margin-top: 225px; */
+        border-top: solid;
+        border-width: 1px;
+        width: 2575px;
+        /* margin-bottom: 50px; */
+        /* border-color: purple; */
+    }
+    
+
+    #cr-2 {
+        margin-top: 250px;
+        border-bottom: solid;
+        border-width: 1px;
+        width: 2575px;        /* margin-bottom: 50px; */
+        /* border-color: purple; */
+    }
+
+    #cr-3 {
+        margin-top: 500px;
+        border-bottom: solid;
+        border-width: 1px;
+        /* border-color: purple; */
+        /* padding-bottom: 500px; */
+        /* height: 500px; */
+        border-style: solid;
+        width: 2575px;        /* margin-bottom: 50px; */
+        /* border-color: purple; */
+    }
+
+    #cr-4 {
+        margin-top: 750px;
+        border-bottom: solid;
+        border-width: 1px;
+        width: 2575px;        /* margin-bottom: 50px; */
+        /* border-color: purple; */
+    }
+
+    #cr-event-1-c2 {
+        background-color: #EF5B5B;
+        border-style: solid;
+        border-color: #EF5B5B;
+        width: 280px;
+        margin-left: 200px;
+    }
+
+    #cr-event-1-c3 {
+        background-color: #EF5B5B;
+        border-style: solid;
+        border-color: #EF5B5B;
+        width: 95px;
+        margin-left: 493px;
+        font-size: 14px;
+    }
+
+    #cr-event-3-c1 {
+        background-color: #FFBA49;
+        border-style: solid;
+        border-color: #FFBA49;
+        width: 280px;
+        margin-left: 900px;
+    }
+
+    #cr-event-3-c2 {
+        background-color: #FFBA49;
+        border-style: solid;
+        border-color: #FFBA49;
+        width: 280px;
+        margin-left: 1200px;
+    }
+    #cr-event-3-c3 {
+        background-color: #FFBA49;
+        border-style: solid;
+        border-color: #FFBA49;
+        width: 180px;
+        margin-left: 1495px;
+    }
+
+    #cr-event-3-c4 {
+        background-color: #FFBA49;
+        border-style: solid;
+        border-color: #FFBA49;
+        width: 175px;
+        margin-left: 1700px;
+    }
+
+    #cr-event-4-c1 {
+        background-color: #317B22;
+        border-style: solid;
+        border-color: #317B22;
+        width: 280px;
+        margin-left: 200px;
+    }
+
+    #cr-event-4-c2 {
+        background-color: #317B22;
+        border-style: solid;
+        border-color: #317B22;
+        width: 280px;
+        margin-left: 500px;
+    }
+
+    #cr-event-4-c3 {
+        background-color: #317B22;
+        border-style: solid;
+        border-color: #317B22;
+        width: 270px;
+        margin-left: 800px;
+    }
+
     #wr-priority-type-1{
         background-color: #EF5B5B;
+        color: white;
+    }
+
+    #wr-priority-type-2{
+        background-color: #317B22;
         color: white;
     }
 
@@ -671,6 +1157,8 @@
     }
 
     #notification-info-container {
+        display: flex;
+        justify-content: center;
         /* border-style: solid; */
         /* width: 25%; */
     }
