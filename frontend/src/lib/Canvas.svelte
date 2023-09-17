@@ -9,9 +9,16 @@
 
 </script>
 
-<div style = "height:50vh">
+<main>
     <Canvas>
         <Scene/>
     </Canvas>
-</div>
+</main>
+
+<style>
+    main {
+        width: 100%;
+        height: 100%;
+    }
+</style>
     
