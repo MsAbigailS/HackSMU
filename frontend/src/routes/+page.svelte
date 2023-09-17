@@ -47,7 +47,7 @@
     </div>
     <div class="navbar-container">
         <div class="navbar-page-text" id="nb-active">Dashboard</div>
-        <div class="navbar-page-text">3D Map</div>
+        <a href="/Model" class="navbar-page-text"><div >3D Map</div></a>
         <div class="navbar-page-text">Work Orders</div>
         <div class="navbar-page-text">Work Requests</div>
     </div>
@@ -463,6 +463,7 @@
     .navbar-page-text:hover {
         font-weight: bold;
         cursor: pointer;
+        text-decoration: none;
     }
 
     .current-trends-container{
