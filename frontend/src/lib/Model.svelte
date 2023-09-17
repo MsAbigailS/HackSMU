@@ -71,36 +71,36 @@ Command: npx @threlte/gltf@1.0.1 Scene.gltf --transform
     <T.LineSegments
         geometry={gltf.nodes.Main_Building.geometry}
         material={gltf.nodes.Main_Building.material}
-        position={[0, 5.2, 0]}
+        position={[0, 5, 0]}
       />
-      <T.Mesh geometry={gltf.nodes.Floor.geometry} material={gltf.nodes.Floor.material} scale={[10, 0.2, 10]} />
+      <T.Mesh geometry={gltf.nodes.Floor.geometry} material={gltf.nodes.Floor.material} position={[0, -2.6, 0]} scale={[10, 0.2, 10]} />
       <T.Mesh
         scale={$elevator_scale_1}
         on:click={() => setScale(1)}
         geometry={gltf.nodes.Elevator_Shaft_1.geometry}
         material={gltf.nodes.Elevator_Shaft_1.material}
-        position={[0, 5.2, -1.5]}
+        position={[0, 2.6, -1.5]}
       />
       <T.Mesh
         scale={$elevator_scale_2}
         on:click={() => setScale(2)}
         geometry={gltf.nodes.Elevator_Shaft_2.geometry}
         material={gltf.nodes.Elevator_Shaft_2.material}
-        position={[0, 5.2, -1]}
+        position={[0, 2.6, -1]}
       />
       <T.Mesh
         scale={$elevator_scale_3}
         on:click={() => setScale(3)}
         geometry={gltf.nodes.Elevator_Shaft_3.geometry}
         material={gltf.nodes.Elevator_Shaft_3.material}
-        position={[0, 5.2, 1]}
+        position={[0, 2.6, 1]}
       />
       <T.Mesh
         scale={$elevator_scale_4}
         on:click={() => setScale(4)}
         geometry={gltf.nodes.Elevator_Shaft_4.geometry}
         material={gltf.nodes.Elevator_Shaft_4.material}
-        position={[0, 5.2, 1.5]}
+        position={[0, 2.6, 1.5]}
       />
     {:catch error}
       <slot name="error" {error} />
