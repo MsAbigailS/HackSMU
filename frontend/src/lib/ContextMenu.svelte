@@ -5,20 +5,23 @@ Inspired from: Context Menu https://svelte.dev/repl/3a33725c3adb4f57b46b597f9dad
 <script lang='ts'>
 	import Phone from '$lib/icons/Phone.svelte'
 	import Graph from '$lib/icons/Graph.svelte';
+	import type { Context } from '$lib/ContextInterface';
     let pos = { x: 0, y: 0 }
-    let menu = { h: 200, w: 170 }
+    let menu = { h: 0, w: 0 }
     let browser = { h: 0, w: 0 }
     let showMenu = false;
+	export let context: Context;
 
-    function rightClickContextMenu(e: { clientX: any; clientY: any; }){
+    function rightClickContextMenu(e: { pageX: any; pageY: any; }){
+		if(context.name == "nothing") return;
         showMenu = true
         browser = {
             w: window.innerWidth,
             h: window.innerHeight
         };
         pos = {
-            x: e.clientX,
-            y: e.clientY + menu.h / 2
+            x: e.pageX,
+            y: e.pageY
         };
         // If bottom part of context menu will be displayed
         // after right-click, then change the position of the
@@ -35,6 +38,7 @@ Inspired from: Context Menu https://svelte.dev/repl/3a33725c3adb4f57b46b597f9dad
         // To make context menu disappear when
         // mouse is clicked outside context menu
         showMenu = false;
+		context = {name: "nothing"};
     }
     function getContextMenuDimension(node: HTMLElement){
         // This function will get context menu dimension
@@ -46,8 +50,9 @@ Inspired from: Context Menu https://svelte.dev/repl/3a33725c3adb4f57b46b597f9dad
             w: width
         }
     }
+
     function msgTechnician(){
-		console.log('add item');
+		console.log(`message the technician: ${JSON.stringify(context)}!`);
     }
 
 </script>
@@ -61,13 +66,13 @@ Inspired from: Context Menu https://svelte.dev/repl/3a33725c3adb4f57b46b597f9dad
         display: inline-flex;
         border: 1px #999 solid;
         width: 170px;
-		height: 200px;
 		padding-top: 10px;
 		padding-bottom: 10px;
         background-color: #fff;
         border-radius: 10px;
         overflow: hidden;
         flex-direction: column;
+		box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
     }
 
 	button {
@@ -93,7 +98,9 @@ Inspired from: Context Menu https://svelte.dev/repl/3a33725c3adb4f57b46b597f9dad
 </style>
 
 {#if showMenu}
-<nav use:getContextMenuDimension style="position: absolute; top:{pos.y}px; left:{pos.x}px">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<nav use:getContextMenuDimension style="position: absolute; top:{pos.y}px; left:{pos.x}px" on:click={onPageClick}>
     <div class="navbar" id="navbar">
 		<button on:click={msgTechnician}>Notify Technician<Phone/></button>
 		<button>View Diagnostics<Graph/></button>
