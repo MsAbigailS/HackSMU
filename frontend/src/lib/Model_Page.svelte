@@ -1,9 +1,11 @@
 <script lang='ts'>
 	import Canvas from "./Canvas.svelte";
     import fetchState from './FetchState';
-    import { focused_elevator } from "$lib/store";
-    fetchState();
+    import { focused_elevator } from "$lib/store";    
+    import { current_state, state } from '$lib/store';
 
+    state.subscribe((state) => fetchState(state));
+    console.log(state);
     let current_elevator = 0;
     let popup: HTMLDivElement | null = null;
 
