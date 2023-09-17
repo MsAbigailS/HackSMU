@@ -11,7 +11,7 @@ export const state = readable({}, (set) => {
         let index = Math.floor(Math.random() * 10);
 
         const form = json['states'][index];
-        console.log(form)
+        // console.log(form)
 		set(form);
 	}, 2000);
 

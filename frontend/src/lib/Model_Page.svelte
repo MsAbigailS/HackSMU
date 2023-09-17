@@ -5,7 +5,7 @@
     import { current_state, state } from '$lib/store';
 
     state.subscribe((state) => fetchState(state));
-    console.log(state);
+    // console.log(state);
     let current_elevator = 0;
     let popup: HTMLDivElement | null = null;
 
