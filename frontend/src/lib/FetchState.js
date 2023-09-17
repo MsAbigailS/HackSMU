@@ -13,14 +13,14 @@ const fetchState = async () => {
     data.append("door_speed", String(form.door_speed));
     data.append("usage_time", String(form.usage_time));
 
-    await fetch(
-        "http://localhost:5000/predict",
-        {
-            method: 'POST',
-            body: data
-        })
-    .then((response) => response.text())
-    .then((text) => console.log(text))
+    // await fetch(
+    //     "http://localhost:5000/predict",
+    //     {
+    //         method: 'POST',
+    //         body: data
+    //     })
+    // .then((response) => response.text())
+    // .then((text) => console.log(text))
 
 }
 
