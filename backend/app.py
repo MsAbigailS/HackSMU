@@ -2,12 +2,14 @@ from flask import Flask, request
 from keras.models import load_model
 from twilio.rest import Client
 import json
+from flask_cors import CORS
 
 secrets = json.load(open("secrets.json", "r"))
 model = load_model("predictive_maintenance.h5")
 twilio_client = Client(secrets["twilio_sid"], secrets["twilio_token"])
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route("/")
@@ -18,6 +20,7 @@ def hello():
 @app.route("/predict", methods=["POST"])
 def predict():
     args = request.form
+    print(args)
     air_temp = float(args["outside_temp"])
     process_temp = float(args["elevator_temp"])
     rot_speed = float(args["elevator_speed"])
