@@ -1,8 +1,9 @@
 <script>
 	import Canvas from "./Canvas.svelte";
     import fetchState from './FetchState';
+    import { current_state, state } from '$lib/store';
 
-    fetchState();
+    state.subscribe((state) => fetchState(state))
 
 </script>
 

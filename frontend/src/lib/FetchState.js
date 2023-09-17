@@ -1,11 +1,11 @@
 import states from './states.json';
+import { current_state } from './store';
 
 
-const fetchState = async () => {
+const fetchState = async (state) => {
 
-    let index = Math.floor(Math.random() * 10);
+    let form = state;
 
-    const form = states['states'][index];
     const data = new FormData();
     data.append("outside_temp", String(form.outside_temp));
     data.append("elevator_speed", String(form.elevator_speed));
@@ -20,7 +20,7 @@ const fetchState = async () => {
             body: data
         })
     .then((response) => response.text())
-    .then((text) => console.log(text))
+    .then((text) => current_state.set(text))
 
 }
 
