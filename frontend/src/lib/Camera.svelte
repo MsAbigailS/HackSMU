@@ -4,7 +4,7 @@
   </script>
   <T.PerspectiveCamera
     makeDefault
-    position={[5, 8, 5]}
+    position={[5, 15, 5]}
   >
     <OrbitControls
       on:change={(e) => {
