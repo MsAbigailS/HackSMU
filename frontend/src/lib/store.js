@@ -13,7 +13,7 @@ export const state = readable({}, (set) => {
         const form = json['states'][index];
         console.log(form)
 		set(form);
-	}, 200000);
+	}, 2000);
 
 	return () => clearInterval(interval);
 });
