@@ -9,8 +9,7 @@
 
 <body>
     <div class="navbar-container">
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <div class="navbar-proj-title" on:contextmenu|preventDefault={() => {context={name: "project-title"}}}>
+        <div class="navbar-proj-title">
             Project Title
         </div>
         <div class="navbar-profile">
