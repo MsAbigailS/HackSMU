@@ -6,17 +6,22 @@ const fetchState = async () => {
     let index = Math.floor(Math.random() * 10);
 
     const form = states['states'][index];
+    const data = new FormData();
+    data.append("outside_temp", String(form.outside_temp));
+    data.append("elevator_speed", String(form.elevator_speed));
+    data.append("elevator_temp", String(form.elevator_temp));
+    data.append("door_speed", String(form.door_speed));
+    data.append("usage_time", String(form.usage_time));
 
     await fetch(
-        "localhost:8000/prediction",
+        "http://localhost:5000/predict",
         {
-            headers: {
-
-            },
             method: 'POST',
-            body: JSON.stringify(form)
+            body: data
         })
-    .then((response) => response.json)
-    .then((data) => console.log(data));
+    .then((response) => response.text())
+    .then((text) => console.log(text))
 
 }
+
+export default fetchState;

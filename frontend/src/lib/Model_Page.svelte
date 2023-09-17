@@ -1,5 +1,8 @@
 <script>
 	import Canvas from "./Canvas.svelte";
+    import fetchState from './FetchState';
+
+    fetchState();
 
 </script>
 
